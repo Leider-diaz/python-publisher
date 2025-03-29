@@ -13,7 +13,7 @@ def enviar_mensaje(mensaje: dict):
             pika.ConnectionParameters(host=RABBITMQ_HOST))
         channel = connection.channel()
 
-        mensaje_texto = mensaje.get("texto", "Mensaje vacío")
+        mensaje_texto = "Mensaje enviado desde python"
         channel.basic_publish(exchange='',
                               routing_key=QUEUE_NAME,
                               body=mensaje_texto)
